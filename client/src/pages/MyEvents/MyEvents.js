@@ -21,14 +21,15 @@ class MyEvents extends Component {
     };
     deleteEvent = (id) => {
         API.deleteEvent(id)
-            .then(this.loadEventsByHost)
+            .then(res => this.loadEventsByHost(this.props.match.params.id))
             .catch(err => console.log(err));
     };
     render() {
         return (
-            <Slide left>
+            
                 <div>
                     <Nav />
+                    <Slide left>
                     <div className="container d-flex justify-content-center">
                         <div className="myEventsBackground justify-content-center">
                             <div className="myEventsTitle col text-center">
@@ -58,9 +59,10 @@ class MyEvents extends Component {
                             </div>
                         </div>
                     </div>
+                    </Slide >
                 </div>
 
-            </Slide >
+            
         )
     }
 }
